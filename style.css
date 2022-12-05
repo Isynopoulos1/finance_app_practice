@@ -29,13 +29,14 @@ main {
   align-items: center;
   flex-direction: column;
   width: 100rem;
-  height: 60rem;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   overflow: hidden;
+  padding-bottom: 4rem;
 }
 
 /* ELEMENTS */
@@ -44,6 +45,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 4rem;
 }
 .main-expences-wrapper {
   display: flex;
@@ -94,13 +96,34 @@ main {
 .summary h1 {
   font-size: 1.8rem;
 }
-.details {
+.details-container {
+  display: flex;
+  padding: 1rem 2rem 1rem 1rem;
+  justify-content: space-between;
   width: 300px;
   font-size: 16px;
-
   background-color: white;
 }
+
 /* TRANSACTION SECTION */
+.complete-transaction {
+  width: 300px;
+  margin-bottom: 4rem;
+}
+
+.complete-transaction p {
+  font-size: 16px;
+}
+.concept input {
+  width: 300px;
+  border: none;
+  padding: 10px 10px;
+}
+.amount input {
+  width: 300px;
+  border: none;
+  padding: 10px 10px;
+}
 .btn {
   position: absolute;
   left: 50%;
