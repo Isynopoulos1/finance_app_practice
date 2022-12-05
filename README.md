@@ -1,4 +1,4 @@
-###JAVASCRIPT DESKTOP PRACTICE | PERSONAL FINANCE MANAGEMENT APP
+JAVASCRIPT DESKTOP PRACTICE | PERSONAL FINANCE MANAGEMENT APP
 
 ```
 To develop an application implemented with Javascript to manage the personal finances.
