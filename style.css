@@ -108,7 +108,7 @@ main {
   justify-content: space-between;
   width: 300px;
   font-size: 16px;
-  background-color: white;
+  background-color: #aeb2fe;
 }
 
 /* TRANSACTION SECTION */
@@ -122,6 +122,9 @@ main {
 
 .complete-transaction p {
   font-size: 16px;
+}
+.details p {
+  font-size: 14px;
 }
 .concept input {
   width: 300px;
