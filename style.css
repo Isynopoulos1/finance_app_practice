@@ -56,10 +56,15 @@ main {
 }
 .expences-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 150px;
   height: 8 0px;
   background-color: white;
+}
+.amount {
+  font-size: 16px;
 }
 
 .expences-container p {
@@ -108,7 +113,10 @@ main {
 /* TRANSACTION SECTION */
 .complete-transaction {
   width: 300px;
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
+}
+.complete-transaction h1 {
+  margin-bottom: 1rem;
 }
 
 .complete-transaction p {
@@ -118,6 +126,7 @@ main {
   width: 300px;
   border: none;
   padding: 10px 10px;
+  margin-bottom: 1rem;
 }
 .amount input {
   width: 300px;
@@ -139,6 +148,7 @@ main {
   transition: all 0.2s;
   width: 300px;
 
+  margin-top: 4rem;
   background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
@@ -151,6 +161,10 @@ main {
 .btn:active {
   transform: translate(-50%, 3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+.btn:hover {
+  background-color: #aeb2fe; /* Green */
+  color: white;
 }
 
 .btn:focus {
