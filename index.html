@@ -5,31 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finance App</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <!-- TOTAL SECTION -->
     <main>
       <div class="main-title">
-        <h2 class="budget">🤑 Budget</h2>
-        <p class="total" id="total">€</p>
+        <div class="budget">🤑 Budget</div>
+        <div class="total" id="total">€</div>
       </div>
 
       <!-- INCOMES AND EXPENCES SECTION -->
       <section class="main-expences-wrapper">
         <div class="expences-container" id="savings">
-          <p>Income</p>
+          <h1>Income</h1>
           <div class="amount-saved">0€</div>
         </div>
         <div class="expences-container" id="expences">
-          <p>Expences</p>
+          <h1>Expence</h1>
           <div class="amount-spended">0€</div>
         </div>
       </section>
       <!-- SUMMARY SECTION -->
-      <section class="summary-container">
+      <section class="summary-containers">
         <h1>Summary</h1>
-        <div class="details-container">
+        <div class="summary-container">
           <div class="details" id="concept">
             <p>lorem ipsum</p>
           </div>
@@ -41,17 +41,19 @@
       <!-- ADD TRANSACTION SECTION -->
       <section class="complete-transaction">
         <h1>Add new transaction</h1>
-        <div class="concept-transaccion">
-          <p>Concept</p>
-          <input type="text" placeholder="Type concept" id="write-concept" />
+        <div class="concept">
+          <h2>Concept</h2>
+          <input type="text" placeholder="Type concept" />
         </div>
         <div class="amount">
-          <p>Amount</p>
-          <input type="text" placeholder="Type amount" />
+          <h1>Amount</h1>
+          <p>For Income type: amount</p>
+          <p>For Expence type: - amount</p>
+          <input type="text" placeholder="Type amount €" />
         </div>
         <button class="btn add">Add transaction</button>
       </section>
     </main>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

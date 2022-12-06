@@ -28,7 +28,7 @@ main {
   position: relative;
   align-items: center;
   flex-direction: column;
-  width: 50rem;
+  width: 45rem;
   height: auto;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
@@ -37,6 +37,16 @@ main {
   border-radius: 9px;
   overflow: hidden;
   padding-bottom: 4rem;
+}
+
+/*TOTAL SECTION*/
+.budget {
+  font-size: 3rem;
+}
+.total {
+  font-size: 4rem;
+  font-weight: 300;
+  color: #9499f8;
 }
 
 /* INCOMES AND EXPENCES SECTION */
@@ -68,31 +78,21 @@ main {
   font-size: 16px;
 }
 
-.expences-container p {
+.expences-container h1 {
   display: flex;
   font-family: inherit;
   font-size: 1.8rem;
   text-transform: uppercase;
 }
-.total {
-  position: relative;
-  font-size: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  font-weight: 300;
-  margin-bottom: 1rem;
+.amount-saved {
+  font-size: 1.8rem;
 }
-
-.euro {
-  font-size: 8rem;
-  font-weight: 300;
-  color: #aeb2fe;
-  margin-bottom: auto;
+.amount-spended {
+  font-size: 1.8rem;
 }
 
 /*SUMMARY SECTION*/
-.summary-container {
+.summary-containers {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -103,7 +103,7 @@ main {
 .summary h1 {
   font-size: 1.8rem;
 }
-.details-container {
+.summary-container {
   display: flex;
   padding: 1rem 2rem 1rem 1rem;
   justify-content: space-between;
@@ -119,24 +119,32 @@ main {
 }
 .complete-transaction h1 {
   margin-bottom: 1rem;
+  font-size: 1.8rem;
 }
-
+.complete-transaction h2 {
+  font-size: 15px;
+}
 .complete-transaction p {
-  font-size: 16px;
+  font-size: 11px;
 }
 .details p {
   font-size: 14px;
+}
+.concept {
+  margin-top: 2rem;
 }
 .concept input {
   width: 300px;
   border: none;
   padding: 10px 10px;
   margin-bottom: 1rem;
+  margin-top: 10px;
 }
 .amount input {
   width: 300px;
   border: none;
   padding: 10px 10px;
+  margin-top: 10px;
 }
 .btn {
   position: absolute;
@@ -153,7 +161,7 @@ main {
   transition: all 0.2s;
   width: 300px;
 
-  margin-top: 4rem;
+  margin-top: 2rem;
   background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
@@ -174,4 +182,8 @@ main {
 
 .btn:focus {
   outline: none;
+}
+
+.hide {
+  display: none;
 }
