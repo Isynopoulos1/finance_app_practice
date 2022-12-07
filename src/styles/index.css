@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap");
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  color: #333;
+  background-image: linear-gradient(to top left, #8ec5fc 0%, #e0c3fc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LAYOUT */
+main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 30rem;
+  height: auto;
+  min-height: 40rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* HEADER */
+#header {
+  align-items: center;
+  padding: 2rem 0;
+}
+
+/* SUMMARY */
+#summary {
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: white;
+  width: 100%;
+}
+
+.summary-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* TRANSACTIONS LIST TODO */
+
+/* FORM */
+form {
+  position: relative;
+  width: 100%;
+}
+
+form button {
+  margin-top: 1rem;
+}
+
+.form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > input,
+.form-container > label {
+  margin-top: 1rem;
+}
+
+form label {
+  font-size: 1rem;
+}
+form input {
+  padding: 0.5rem;
+  border: none;
+  font-size: 1rem;
+}
+form input:focus {
+  outline: none;
+}
+
+form button {
+  position: relative;
+  color: #444;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.7rem 2.5rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+form button:active {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+form button:hover {
+  background-color: #aeb2fe; /* Green */
+  color: white;
+}
+form button:focus {
+  outline: none;
+}
+
+/* UTILS */
+.hide {
+  display: none;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/styles/index.css" />
+  </head>
+  <body>
+    <!-- TOTAL SECTION -->
+    <main>
+      <section id="header">
+        <h1 class="budget">🤑 Budget</h1>
+        <div class="total" id="total"></div>
+      </section>
+      <!-- INCOMES AND EXPENCES SECTION -->
+      <section id="summary">
+        <div class="summary-container">
+          <h3>Income</h3>
+          <p>0€</p>
+        </div>
+        <div class="summary-container">
+          <h3>Expence</h3>
+          <p>0€</p>
+        </div>
+      </section>
+      <!-- SUMMARY SECTION -->
+      <section id="transactions">
+        <h2>Transactions list</h2>
+      </section>
+      <!-- ADD TRANSACTION SECTION -->
+      <section id="form">
+        <h2>Add new transaction</h2>
+        <form>
+          <div class="form-container">
+            <label>Concept</label>
+            <input id="concept" type="text" placeholder="Type concept" />
+          </div>
+          <div class="form-container">
+            <label>Amount (can be positive or negative numerical values)</label>
+            <input id="amount" type="number" placeholder="Type amount €" />
+          </div>
+          <button id="add-transaction">Add transaction</button>
+        </form>
+      </section>
+    </main>
+    <script src="../src/index.js"></script>
+  </body>
+</html>
