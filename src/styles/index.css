@@ -74,6 +74,14 @@ h3 {
   align-items: center;
   padding: 2rem 0;
 }
+.budget {
+  padding-bottom: 2rem;
+}
+.total {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #aeb2fe;
+}
 
 /* SUMMARY */
 #summary {
@@ -89,6 +97,12 @@ h3 {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+}
+#income p {
+  color: #11cb8a;
+}
+#expence p {
+  color: #fc6161;
 }
 
 /* TRANSACTIONS LIST */

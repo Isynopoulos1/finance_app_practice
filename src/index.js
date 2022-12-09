@@ -3,10 +3,11 @@ const addTransactionButton = document.getElementById("add-transaction");
 const transactionList = document.getElementById("transactions");
 const concept = document.getElementById("concept");
 const amount = document.getElementById("amount");
-const transactionsList = [];
+let transactions = [];
+
 let total = 0;
-let totalExpenses = 0;
-let totalIncome = 0;
+let totalEx = 0;
+let totalIn = 0;
 
 // NOTE LIFECYLE
 addTransactionButton.addEventListener("click", (e) => {
@@ -26,31 +27,45 @@ addTransactionButton.addEventListener("click", (e) => {
 // TODO EVENT LISTENNER OF DELETE TRANSACTION BUTTON
 
 // NOTE HANDLE FUNCTIONS
-const loadSavedTransactions = () => console.log("loading transactions");
-const handleSaveTransaction = () => console.log("save transaction");
+// DATASTRUCTURE
+const loadSavedTransactions = () => {
+  transactions = window.localStorage.getItem("transactions")
+    ? JSON.parse(window.localStorage.getItem("transactions"))
+    : [];
+  return;
+};
+const handleSaveTransaction = () => {
+  return window.localStorage.setItem(
+    "transactions",
+    JSON.stringify(transactions)
+  );
+};
 const handleDelete = (node) => node.remove();
 const handleReset = (node) => (node.value = "");
 const handleTotal = (list) => {
   return list.reduce((pre, acc) => Number(pre) + Number(acc.amount), 0);
 };
 const handleUpdate = (concept, amount, type) => {
+  // DELETE PREVIOUS RENDERED TRANSACTIONS
   const container = document.querySelector(".transaction-container");
   if (container) handleDelete(container);
-  transactionsList.push({ concept: concept, amount: amount, type: type });
-  total = handleTotal(transactionsList);
-  totalExpenses = handleTotal(
-    transactionsList.filter((i) => i.type === "TYPE_INCOME")
-  );
-  totalIncome = handleTotal(
-    transactionsList.filter((i) => i.type === "TYPE_EXPENSE")
-  );
-
-  return renderTransactionList(transactionsList);
+  // ADD A NEW TRANSACTION TO OUR DATASTRUCTURE
+  transactions.push({ concept: concept, amount: amount, type: type });
+  // LAUNCH RENDER OF TOTAL AND TRANSACTION LIST IN THE UI
+  renderTotals();
+  return renderTransactionList(transactions);
+};
+const handleUpdateTotals = () => {
+  total = handleTotal(transactions);
+  totalEx = handleTotal(transactions.filter((i) => i.type === "TYPE_INCOME"));
+  totalIn = handleTotal(transactions.filter((i) => i.type === "TYPE_EXPENSE"));
+  return;
 };
 
 // NOTE RENDER FUNCTIONS
 const renderTransactionItem = (concept, amount, id) => {
   const transaction = document.createElement("div");
+  const deleteButton = document.createElement("span");
   transaction.setAttribute("id", id);
   transaction.setAttribute("class", "transaction-item");
   const transactionContent = `
@@ -69,6 +84,18 @@ const renderTransactionList = (list) => {
   }
   return transactionList.appendChild(listContainer);
 };
+const renderTotals = () => {
+  handleUpdateTotals();
+  const totalDiv = document.getElementById("total");
+  const totalIncomeDiv = document.getElementById("income");
+  const totalExpenseDiv = document.getElementById("expence");
+
+  totalDiv.innerHTML = `$${total > 0 ? total : 0}`;
+  totalIncomeDiv.innerHTML = `$${totalEx}`;
+  totalExpenseDiv.innerHTML = `$${Math.abs(totalIn)}`;
+};
 
 // NOTE INVOCTIONS
 loadSavedTransactions();
+renderTransactionList(transactions);
+renderTotals();
