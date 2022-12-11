@@ -4,7 +4,6 @@ const transactionList = document.getElementById("transactions");
 const concept = document.getElementById("concept");
 const amount = document.getElementById("amount");
 let transactions = [];
-
 let total = 0;
 let totalEx = 0;
 let totalIn = 0;
@@ -24,10 +23,8 @@ addTransactionButton.addEventListener("click", (e) => {
     return console.error("amount or concept cannot be empty");
   }
 });
-// TODO EVENT LISTENNER OF DELETE TRANSACTION BUTTON
 
 // NOTE HANDLE FUNCTIONS
-// DATASTRUCTURE
 const loadSavedTransactions = () => {
   transactions = window.localStorage.getItem("transactions")
     ? JSON.parse(window.localStorage.getItem("transactions"))
@@ -41,6 +38,17 @@ const handleSaveTransaction = () => {
   );
 };
 const handleDelete = (node) => node.remove();
+const handleDeleteTransaction = (e) => {
+  // DELETE SPECIFIC ELEMENT BY ID
+  transactions.splice(e.target.id, 1);
+  const container = document.querySelector(".transaction-container");
+
+  // RE RENDER TRANSACTIONS
+  handleDelete(container);
+  renderTransactionList(transactions);
+  renderTotals();
+  handleSaveTransaction();
+};
 const handleReset = (node) => (node.value = "");
 const handleTotal = (list) => {
   return list.reduce((pre, acc) => Number(pre) + Number(acc.amount), 0);
@@ -63,23 +71,39 @@ const handleUpdateTotals = () => {
 };
 
 // NOTE RENDER FUNCTIONS
-const renderTransactionItem = (concept, amount, id) => {
+const renderTransactionItem = (concept, amount, type, id) => {
+  // HTML CREATION
   const transaction = document.createElement("div");
-  const deleteButton = document.createElement("span");
+  const deleteSpan = document.createElement("span");
+
+  // SPECS ATTRIBUTION
   transaction.setAttribute("id", id);
-  transaction.setAttribute("class", "transaction-item");
+  transaction.setAttribute("class", `transaction-item ${type.toLowerCase()}`);
+  deleteSpan.setAttribute("id", id);
+  deleteSpan.addEventListener("click", handleDeleteTransaction);
+  deleteSpan.innerText = "X";
   const transactionContent = `
     <p>${concept}</p>
     <p>$${amount}</p>
   `;
+
+  // HAPPEND CHILDS INTO TRANSACTION DIV
   transaction.innerHTML = transactionContent;
+  transaction.appendChild(deleteSpan);
+
+  // RETURN FINAL NODE
   return transaction;
 };
 const renderTransactionList = (list) => {
   const listContainer = document.createElement("div");
   listContainer.setAttribute("class", "transaction-container");
   for (let i = 0; i < list.length; i++) {
-    const children = renderTransactionItem(list[i].concept, list[i].amount, i);
+    const children = renderTransactionItem(
+      list[i].concept,
+      list[i].amount,
+      list[i].type,
+      i
+    );
     listContainer.appendChild(children);
   }
   return transactionList.appendChild(listContainer);
@@ -88,11 +112,11 @@ const renderTotals = () => {
   handleUpdateTotals();
   const totalDiv = document.getElementById("total");
   const totalIncomeDiv = document.getElementById("income");
-  const totalExpenseDiv = document.getElementById("expence");
+  const totalExpenseDiv = document.getElementById("expense");
 
-  totalDiv.innerHTML = `$${total > 0 ? total : 0}`;
-  totalIncomeDiv.innerHTML = `$${totalEx}`;
-  totalExpenseDiv.innerHTML = `$${Math.abs(totalIn)}`;
+  totalDiv.innerHTML = `$${total > 0 ? Number(total).toFixed(2) : 0}`;
+  totalIncomeDiv.innerHTML = `$${Number(totalEx).toFixed(2)}`;
+  totalExpenseDiv.innerHTML = `$${Math.abs(totalIn).toFixed(2)}`;
 };
 
 // NOTE INVOCTIONS

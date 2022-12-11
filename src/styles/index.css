@@ -111,9 +111,25 @@ h3 {
   width: 100%;
 }
 .transaction-item {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: #aeb2fe;
+  padding: 6px 24px 6px 12px;
+  margin-bottom: 6px;
+  background-color: #aeb2fe78;
+}
+.type_income {
+  border-right: 4px solid rgb(84, 183, 100);
+}
+.type_expense {
+  border-right: 4px solid rgb(242, 93, 93);
+}
+.transaction-item span {
+  position: absolute;
+  cursor: pointer;
+  right: 6px;
+  top: 3px;
+  font-size: 10px;
 }
 /* FORM */
 form {
@@ -172,9 +188,4 @@ form button:hover {
 }
 form button:focus {
   outline: none;
-}
-
-/* UTILS */
-.hide {
-  display: none;
 }
